@@ -31,9 +31,9 @@
             <property name="hibernate.archive.autodetection" value="class, hbm"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-            <property name="hibernate.connection.password" value="missKadi"/>
+            <property name="hibernate.connection.password" value="miage"/>
             <property name="hibernate.connection.url" value="jdbc:mysql://<HOST IP ADDRESS>/<DB NAME>"/>
-            <property name="hibernate.connection.username" value="kadi"/>
+            <property name="hibernate.connection.username" value="user_12012310"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <property name="hibernate.c3p0.min_size" value="5"/>
             <property name="hibernate.c3p0.max_size" value="20"/>
