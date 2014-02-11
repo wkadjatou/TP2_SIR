@@ -1,9 +1,12 @@
 package fr.istic.tpjpa.domain;
 
+
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
 
 @Entity
 public class Heater {
@@ -11,12 +14,14 @@ public class Heater {
 	private int consomation;
 	private long id;
 	private Home home;
-	
+	private ElectroniqueDevice devices;
 	public Heater(){
 		
 	}
 	public Heater(int consomation){
 		this.consomation=consomation;
+		
+	
 	}
 	public int getConsomation() {
 		return consomation;
@@ -38,6 +43,13 @@ public class Heater {
 	}
 	public void setHome(Home home) {
 		this.home = home;
+	}
+	@ManyToOne
+	public ElectroniqueDevice getDevices() {
+		return devices;
+	}
+	public void setDevices(ElectroniqueDevice devices) {
+		this.devices = devices;
 	}
 	
 	
