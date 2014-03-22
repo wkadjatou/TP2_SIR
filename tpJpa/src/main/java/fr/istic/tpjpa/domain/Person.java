@@ -8,9 +8,11 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.Transient;
+
 
 @Entity
 public class Person {
@@ -24,7 +26,6 @@ public class Person {
 	private List<Person> friends;
 	private List<Home> homes;
 	private List<ElectroniqueDevice> devices;
-	//private ArrayList<ElectronicDevices> devices;
 public Person(){
 	homes = new ArrayList<Home>();
 	friends = new ArrayList<Person>();

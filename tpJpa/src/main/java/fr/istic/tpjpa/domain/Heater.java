@@ -2,6 +2,7 @@ package fr.istic.tpjpa.domain;
 
 
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,7 +10,8 @@ import javax.persistence.ManyToOne;
 
 
 @Entity
-public class Heater {
+@DiscriminatorValue("HEATER")
+public class Heater extends PeripherieInt {
 
 	private int consomation;
 	private long id;
@@ -29,8 +31,8 @@ public class Heater {
 	public void setConsomation(int consomation) {
 		this.consomation = consomation;
 	}
-	@Id
-	@GeneratedValue
+//	@Id
+//	@GeneratedValue
 	public long getId() {
 		return id;
 	}

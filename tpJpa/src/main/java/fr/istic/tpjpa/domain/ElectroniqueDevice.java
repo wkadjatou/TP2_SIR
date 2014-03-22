@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,7 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-@Inheritance
+@DiscriminatorValue("ELECTRONIQUEDE")
 public class ElectroniqueDevice {
 	private int consommation;
 	private long id;
@@ -47,7 +48,7 @@ public class ElectroniqueDevice {
 	public void setPerson(Person person) {
 		this.person = person;
 	}
-@OneToMany
+@OneToMany(mappedBy="devices", cascade=CascadeType.PERSIST)
 	public List<Heater> getChauffage() {
 		return chauffage;
 	}
