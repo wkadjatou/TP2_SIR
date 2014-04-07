@@ -46,12 +46,16 @@ public class Heater extends PeripherieInt {
 	public void setHome(Home home) {
 		this.home = home;
 	}
-	@ManyToOne
-	public ElectroniqueDevice getDevices() {
-		return devices;
-	}
-	public void setDevices(ElectroniqueDevice devices) {
-		this.devices = devices;
+//	@ManyToOne
+//	public ElectroniqueDevice getDevices() {
+//		return devices;
+//	}
+//	public void setDevices(ElectroniqueDevice devices) {
+//		this.devices = devices;
+//	}
+	@Override
+	public String toString() {
+		return "Heater :consomation =" + consomation + "";
 	}
 	
 	

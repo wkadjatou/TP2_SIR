@@ -25,6 +25,7 @@ public class Home {
 	private List<Heater> chauffage;
 	
 	public Home(){
+		chauffage= new ArrayList<Heater>();
 		
 	}
 	public Home(int tailleResid, int nbrePieces, String adresse, String adresseIp){
@@ -80,6 +81,12 @@ public class Home {
 	}
 	public void setChauffage(List<Heater> chauffage) {
 		this.chauffage = chauffage;
+	}
+	@Override
+	public String toString() {
+		return "Home [tailleResid= " + tailleResid + ", nbrePieces= "
+				+ nbrePieces + ", adresse= " + adresse + ", adresseIp= "
+				+ adresseIp + "]";
 	}
 	
 
