@@ -1,13 +1,13 @@
 package fr.istic.tpjpa.jpa;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
+
 
 import fr.istic.tpjpa.domain.ElectroniqueDevice;
 import fr.istic.tpjpa.domain.Heater;
@@ -37,47 +37,16 @@ public class JpaTest {
 
 		// TODO create entity
 		PeripherieInt p = new PeripherieInt();
-		//
-		// Person person = new Person("balde", "kadiatou",
-		// "balde.kadjatou@gmail.com", "kadjatou");
-		// Person person1 = new Person("dupond", "durand",
-		// "dupond.durand@gmail.com", "dupon");
-		// Person person2 = new Person("lucia", "marie",
-		// "lucia.marie@gmail.com",
-		// "lucie");
-		// Home home = new Home(24, 1,
-		// "48,Avenue du général leclerc 37000 Tours",
-		// "128.01.123");
-		// Home home1 = new Home(72, 4,
-		// "58,58,Rue olivier de serres 35000 Rennes", "130.08.97");
-		// Heater chauffage = new Heater(20);
-		// ElectroniqueDevice device = new ElectroniqueDevice(30);
-		//
-		// person.getFriends().add(person1);
-		// person.getFriends().add(person2);
-		// person.getDevices().add(device);
-		// person.getHomes().add(home);
-		// person.getHomes().add(home1);
-		// home.getChauffage().add(chauffage);
-		//
-		// device.setPerson(person);
-		// chauffage.setHome(home);
-		// home.setPerson(person);
-		// home1.setPerson(person);
-		//
-		// manager.persist(person);
-		// manager.persist(person1);
-		// manager.persist(person2);
-		// manager.persist(device);
 		// TODO persist entity
 		test.createPerson();
-		test.createElectronique();
-				
-		tx.commit();
-		test.listPerson();
-		test.listHome();
+		//test.createElectronique();
+		test.Person();
+		//test.listHome();
 		test.listeElectroniques();
 		test.listeHeater();
+				
+		tx.commit();
+		
 		
 		// TODO run request
 		manager.close();
@@ -91,6 +60,10 @@ public class JpaTest {
 		if (numOfPersonnes == 0) {
 			Person personne1 = new Person("balde", "kadiatou",
 					"balde.kadjatou@gmail.com", "kadjatou");
+			Person personneB = new Person("balde", "kadjatouBW",
+					"balde.kadjatouW@gmail.com", "kadjatouB");
+			Person personneW = new Person("balde", "kadjatouB",
+					"balde.kadjatouW@gmail.com", "kadjatouB");
 			Person personne2 = new Person("dupond", "durand",
 					"dupond.durand@gmail.com", "dupon");
 			Person personne3 = new Person("lucia", "marie",
@@ -132,19 +105,21 @@ public class JpaTest {
 			manager.persist(personne1);
 			manager.persist(personne2);
 			manager.persist(personne3);
+			manager.persist(personneB);
+			manager.persist(personneW);
+			
 		
 
 		}
 	}
 
-	// La liste des personnes
-	private void listPerson() {
+	private void Person() {
 		List<Person> Persons = manager.createQuery(
-				"select person from Person person", Person.class)
+				"select distinct p from Person p, Person p2 where p.id != p2.id and p.nom = p2.nom", Person.class)
 				.getResultList();
 		System.out.println("num of Person:" + Persons.size());
-		for (Person p : Persons) {
-			System.out.println("next person: " + p.toString());
+		for (Person per : Persons) {
+			System.out.println("next person: " + per.toString());
 			
 		}
 

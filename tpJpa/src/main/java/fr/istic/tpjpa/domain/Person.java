@@ -10,9 +10,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
-
+@NamedQueries({@NamedQuery(name="La liste de personne présente dans ma base de données",
+query= "select p from Person p where p.nom=:Nom and p.prenom=:Prenom")})
 @Entity
 public class Person {
 	private String nom;
@@ -22,6 +26,7 @@ public class Person {
 	private Date dateNaissance;
 	private String profilFcbk;
 	private Long id;
+	private boolean valeur;
 	private List<Person> friends;
 	private List<Home> homes;
 	private List<ElectroniqueDevice> devices;
@@ -109,13 +114,12 @@ public Person(String nom, String prenom, String mail, String profilFcbk){
 	public void setDevices(List<ElectroniqueDevice> devices) {
 		this.devices = devices;
 	}
-	//La liste des personnes
 	@Override
 	public String toString() {
 		return "nom= " + nom + ", prenom= " + prenom + ", mail= " + mail
 				+ ", profilFcbk= " + profilFcbk + " ";
 	}
-	
+
 
 
 }

@@ -10,10 +10,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 
-
+@NamedQueries({@NamedQuery(name="La liste de maison présente dans ma base de données",
+query= "select h from Home h")})
 @Entity
 public class Home {
 	private int tailleResid;
